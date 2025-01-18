@@ -12,11 +12,31 @@ import MyCars from './Pages/MyCars';
 import AddCar from './Pages/AddCar';
 import AvailableCars from './Pages/AvailableCars';
 import MyBookings from './Pages/MyBookings';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import AuthLayout from './LayOuts/AuthLayout';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<HomeLayout></HomeLayout>
+  },
+
+  {
+    path:"auth",
+    element:<AuthLayout></AuthLayout>,
+    children:[
+  
+      {
+        path:"/auth/login",
+        element:<Login></Login>,
+      },
+      {
+        path:"/auth/register",
+        element: <Register></Register>,
+      }
+      
+    ]
   },
   {
 
@@ -38,6 +58,16 @@ element:<MyCars></MyCars>
 
   path:"/myBookings",
   element:<MyBookings></MyBookings>
+},{
+
+
+  path:"/auth/login",
+  element:<Login></Login>
+},{
+
+
+  path:"/auth/register",
+  element:<Register></Register>
 }
 
 ]);

@@ -50,7 +50,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link className='btn btn-error' to="">
+    <Link className='btn btn-error' to="/auth/login">
     
 
     LogIn

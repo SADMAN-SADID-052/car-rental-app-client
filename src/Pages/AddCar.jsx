@@ -10,7 +10,202 @@ const AddCar = () => {
          <header>
              <Navbar></Navbar>
          </header>
+         
+         <main>
+         <div className='lg:w-3/4 mx-auto'>
+  <div className="text-center p-10">
+     <h1 className="text-5xl font-bold">Add Car</h1>
+     <p className="py-6">
+     A car rental system is a software that helps manage the process of renting cars.
+    </p>
+     
+    
+ 
+  </div>
+  <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+    <form
+    
+    // onSubmit={handleSubmit}
+    className="card-body">
+      {/* User Info Row */}
+      <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">User Name</span>
+          </label>
+          <input 
+            type="text" 
+            name='name' 
+           
+           
+           className="input input-bordered bg-gray-100" 
+          />
+        </div>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">User Email</span>
+          </label>
+          <input 
+            type="email" 
+            name='email' 
 
+           
+          
+           className="input input-bordered bg-gray-100" 
+          />
+        </div>
+      </div>
+
+      {/* Availablity and reg number */}
+
+      <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Availability</span>
+          </label>
+          <input 
+            type="text" 
+            name='availability' 
+          
+           className="input input-bordered bg-gray-100" 
+          />
+        </div>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Reg No.</span>
+          </label>
+          <input 
+            type="number" 
+            name='regNo' 
+
+            
+            
+           className="input input-bordered bg-gray-100" 
+          />
+        </div>
+      </div>
+
+
+      {/* Form first row */}
+      <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Car Model</span>
+          </label>
+          <input 
+            type="text" 
+            name='gameTitle' 
+            placeholder="Enter game title" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Car Image</span>
+          </label>
+          <input 
+            type="url" 
+            name='coverImage' 
+            placeholder="Enter image URL" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+      </div>
+
+      {/* Form second row */}
+      <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Number of Bookings</span>
+          </label>
+          <input 
+            type="number" 
+            name='publishingYear' 
+            placeholder="e.g., 2021, 2024" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Daily Rental Price</span>
+          </label>
+          <input 
+            type="number" 
+            name='rating' 
+            min="1" 
+            max="10" 
+            placeholder="Enter rating" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+      </div>
+
+
+{/* New Row */}
+      <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Location</span>
+          </label>
+          <input 
+            type="text" 
+            name='publishingYear' 
+            placeholder="e.g., 2021, 2024" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+    
+      </div>
+
+
+      {/* Form third row */}
+      <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Car Features</span>
+          </label>
+          <select 
+            name='features' 
+            className="select select-bordered w-full" 
+            required
+          >
+            <option value="">Select a Feature</option>
+            <option value="GPS">GPS</option>
+            <option value="AC">AC</option>
+            <option value="Non AC">Non Ac</option>
+           
+          </select>
+        </div>
+      </div>
+
+      {/* Review Description */}
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Description</span>
+        </label>
+        <textarea 
+          name='reviewDescription' 
+          placeholder="Write your review here" 
+          rows="4" 
+          className="textarea textarea-bordered" 
+          required
+        ></textarea>
+      </div>
+
+      {/* Submit Button */}
+      <div className="form-control mt-6">
+        <button type="submit" className="btn btn-primary text-xl font-bold">Submit Review</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+         </main>
 
         </div>
 
