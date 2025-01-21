@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../Provider/AuthProvider';
+
 import { toast } from 'react-toastify';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Register = () => {
-//   const { createUser, setUser } = useContext(AuthContext);
+const { createUser, setUser } = useContext(AuthContext);
 
 
   const handleSignUp = (e) => {
@@ -18,62 +19,62 @@ const Register = () => {
     console.log(name, email, password, photo);
 
 
-    // // Password length validation
-    // if (password.length < 6) {
-    //   toast.error('Password Should be 6 Characters or longer', {
-    //     position: 'top-center',
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: 'dark',
-    //   });
-    //   return;
-    // }
+    // Password length validation
+    if (password.length < 6) {
+      toast.error('Password Should be 6 Characters or longer', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
 
     
-    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{6,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{6,}$/;
 
-    // if (!passwordRegex.test(password)) {
-    //   toast.error('Password must be one uppercase letter, one lowercase letter, one number, and one special character!!', {
-    //     position: 'top-center',
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: 'dark',
-    //   });
-    //   return;
-    // }
+    if (!passwordRegex.test(password)) {
+      toast.error('Password must be one uppercase letter, one lowercase letter, one number, and one special character!!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
 
-    // // Firebase Authentication
-    // createUser(email, password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     setUser(user);
+    // Firebase Authentication
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
 
-    //     toast.success('Registration Successful!', {
-    //       position: 'top-center',
-    //       autoClose: 3000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //       theme: 'dark',
-    //     });
+        toast.success('Registration Successful!', {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
 
-    //     e.target.reset(); 
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     // console.log(errorCode, errorMessage);
-    //   });
+        e.target.reset(); 
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // console.log(errorCode, errorMessage);
+      });
   };
 
   return (

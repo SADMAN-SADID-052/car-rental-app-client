@@ -1,88 +1,88 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-// import { AuthContext } from '../Provider/AuthProvider';
+import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
-// import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-// import auth from '../Firebase/firebase.login';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../Firebase/firebase.login';
 
 const Login = () => {
  
 
-// //   const {userLogin,setUser} = useContext(AuthContext)
-//   const location = useLocation();
-//   // console.log(location)
-//   const navigate = useNavigate();
+  const {userLogin,setUser} = useContext(AuthContext)
+  const location = useLocation();
+  console.log(location)
+  const navigate = useNavigate();
 
-//   // google log in
-//   const provider = new GoogleAuthProvider();
+  // google log in
+  const provider = new GoogleAuthProvider();
 
-//   const handleGoogleLogin = () =>{
+  const handleGoogleLogin = () =>{
     
-//     signInWithPopup(auth,provider)
-//     .then((result) => {
-//       navigate(location?.state  ? location.state : "/");
-//       // console.log(result)
+    signInWithPopup(auth,provider)
+    .then((result) => {
+      navigate(location?.state  ? location.state : "/");
+      console.log(result)
 
-//       toast.success("Login Successful!", {
-//         position: "top-center",
-//         autoClose: 3000,
-//         hideProgressBar: false,
-//         closeOnClick: true,
-//         pauseOnHover: true,
-//         draggable: true,
-//         progress: undefined,
-//         theme: "dark",
-//       });
+      toast.success("Login Successful!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
 
 
-//     })
-//     .catch(error =>{
+    })
+    .catch(error =>{
 
-//       console.log('error',error)
-//     })
-//   }
+      // console.log('error',error)
+    })
+  }
   // login user
   const handleLogin = (e) =>{
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email,password)
-  }
-    // userLogin(email,password)
-    // .then(result =>{
+    // console.log(email,password)
+    
+    userLogin(email,password)
+    .then(result =>{
 
-    //   const user = result.user;
-    //   setUser(user);
-    //   navigate(location?.state  ? location.state : "/");
-    //   toast.success("Login Successful!", {
-    //     position: "top-center",
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "dark",
-    //   });
+      const user = result.user;
+      setUser(user);
+      navigate(location?.state  ? location.state : "/");
+      toast.success("Login Successful!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       
       
-    // })
-    // .catch((error)=>{
+    })
+    .catch((error)=>{
 
-    //   toast.error("Email or Password does not match!", {
-    //     position: "top-center",
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "dark",
-    //   });
+      toast.error("Email or Password does not match!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
 
       
-    // })}
+    })}
 
 
     return (
@@ -162,7 +162,7 @@ const Login = () => {
 
         <div className='text-center mt-6'>
         <button 
-        // onClick={handleGoogleLogin}
+        onClick={handleGoogleLogin}
         className='btn btn-outline'>Log In With Google</button>
         </div>
         <div className="flex gap-2 pt-5">
