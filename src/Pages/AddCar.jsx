@@ -1,8 +1,68 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddCar = () => {
+  const { user } = useContext(AuthContext);
+  const handleSubmit = e =>{
+
+   
+
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email  = e.target.email.value;
+
+    const availability = e.target.availability.value;
+    const regNo = e.target.regNo.value;
+    const carModel = e.target.carModel.value;
+    const carImage = e.target.carImage.value;
+    const bookings = e.target.bookings.value;
+    const rentalPrice = e.target.rentalPrice.value;
+    const features = e.target.features.value;
+   
+    const description = e.target.description.value;
+   
+    const newCar = {name,email,availability,regNo,carModel,carImage,bookings,rentalPrice,features,description}
+    console.log(newCar)
+
+
+      // send data to the server
+
+      fetch('http://localhost:5000/carRental',{
+
+        method: 'POST',
+        headers: {
+
+          'content-type' : 'application/json'
+        },
+
+        body: JSON.stringify(newCar)
+
+
+      })
+      .then(res => res.json())
+      .then(data =>{
+
+        // console.log(data);
+
+        Swal.fire({
+          title: 'Success!',
+          text: 'Review Added Successfully!!',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+
+      })
+      .catch(err => {
+        console.error('Error submitting car:', err);
+    });
+
+
+
+
+  }
     return (
         <div>
 
@@ -25,7 +85,7 @@ const AddCar = () => {
   <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
     <form
     
-    // onSubmit={handleSubmit}
+    onSubmit={handleSubmit}
     className="card-body">
       {/* User Info Row */}
       <div className='flex flex-col lg:flex-row gap-5'>
@@ -36,6 +96,9 @@ const AddCar = () => {
           <input 
             type="text" 
             name='name' 
+
+            value={user?.displayName}
+            readOnly
            
            
            className="input input-bordered bg-gray-100" 
@@ -48,6 +111,9 @@ const AddCar = () => {
           <input 
             type="email" 
             name='email' 
+
+            value={user?.email}
+            readOnly
 
            
           
@@ -94,7 +160,7 @@ const AddCar = () => {
           </label>
           <input 
             type="text" 
-            name='gameTitle' 
+            name='carModel' 
             placeholder="Enter game title" 
             className="input input-bordered" 
             required 
@@ -105,8 +171,8 @@ const AddCar = () => {
             <span className="label-text">Car Image</span>
           </label>
           <input 
-            type="url" 
-            name='coverImage' 
+            type="text" 
+            name='carImage' 
             placeholder="Enter image URL" 
             className="input input-bordered" 
             required 
@@ -122,7 +188,7 @@ const AddCar = () => {
           </label>
           <input 
             type="number" 
-            name='publishingYear' 
+            name='bookings' 
             placeholder="e.g., 2021, 2024" 
             className="input input-bordered" 
             required 
@@ -134,7 +200,7 @@ const AddCar = () => {
           </label>
           <input 
             type="number" 
-            name='rating' 
+            name='rentalPrice' 
             min="1" 
             max="10" 
             placeholder="Enter rating" 
@@ -153,7 +219,7 @@ const AddCar = () => {
           </label>
           <input 
             type="text" 
-            name='publishingYear' 
+            name='location' 
             placeholder="e.g., 2021, 2024" 
             className="input input-bordered" 
             required 
@@ -189,7 +255,7 @@ const AddCar = () => {
           <span className="label-text">Description</span>
         </label>
         <textarea 
-          name='reviewDescription' 
+          name='description' 
           placeholder="Write your review here" 
           rows="4" 
           className="textarea textarea-bordered" 
