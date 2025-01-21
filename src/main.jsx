@@ -19,6 +19,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './Provider/AuthProvider';
 import PrivateRote from './Routes/PrivateRote';
+import Error404 from './Pages/Error404';
 
 const router = createBrowserRouter([
   {
@@ -77,16 +78,13 @@ element:(
       <MyBookings></MyBookings>
     </PrivateRote>
   )
-},{
+},
+
+{
 
 
-  path:"/auth/login",
-  element:<Login></Login>
-},{
-
-
-  path:"/auth/register",
-  element:<Register></Register>
+  path:"*",
+  element:<Error404></Error404>
 }
 
 ]);
