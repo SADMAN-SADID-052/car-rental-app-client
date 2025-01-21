@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
+import Banner from '../Components/Banner';
+import WhyChooseUs from '../Components/WhyChooseUs';
 
 const HomeLayout = () => {
     return (
@@ -11,6 +13,16 @@ const HomeLayout = () => {
                 </header>
 
                 <main>
+                       
+                       <section>
+                       <Banner></Banner>
+
+                       </section>
+
+                       <section>
+                        <WhyChooseUs></WhyChooseUs>
+                       </section>
+                    
 
                 </main>
             </div>
