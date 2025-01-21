@@ -18,6 +18,7 @@ import AuthLayout from './LayOuts/AuthLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './Provider/AuthProvider';
+import PrivateRote from './Routes/PrivateRote';
 
 const router = createBrowserRouter([
   {
@@ -48,19 +49,34 @@ const router = createBrowserRouter([
 },
 {
 path:"/myCars",
-element:<MyCars></MyCars>
+element:(
+
+  <PrivateRote>
+    <MyCars></MyCars>
+  </PrivateRote>
+)
 },
 
 {
   path:"/addCar",
-  element:<AddCar></AddCar>
+  element:(
+
+    <PrivateRote>
+      <AddCar></AddCar>
+    </PrivateRote>
+  )
 
 },
 
 {
 
   path:"/myBookings",
-  element:<MyBookings></MyBookings>
+  element:(
+
+    <PrivateRote>
+      <MyBookings></MyBookings>
+    </PrivateRote>
+  )
 },{
 
 
