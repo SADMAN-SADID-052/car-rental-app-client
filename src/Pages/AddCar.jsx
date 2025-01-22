@@ -21,10 +21,12 @@ const AddCar = () => {
     const bookings = e.target.bookings.value;
     const rentalPrice = e.target.rentalPrice.value;
     const features = e.target.features.value;
+    const location = e.target.location.value;
+    const booking = e.target.booking.value;
    
     const description = e.target.description.value;
    
-    const newCar = {name,email,availability,regNo,carModel,carImage,bookings,rentalPrice,features,description}
+    const newCar = {name,email,availability,regNo,carModel,carImage,bookings,rentalPrice,features,description,location,booking}
     console.log(newCar)
 
 
@@ -201,9 +203,8 @@ const AddCar = () => {
           <input 
             type="number" 
             name='rentalPrice' 
-            min="1" 
-            max="10" 
-            placeholder="Enter rating" 
+          
+            placeholder="Enter Daily Rental Price" 
             className="input input-bordered" 
             required 
           />
@@ -220,9 +221,21 @@ const AddCar = () => {
           <input 
             type="text" 
             name='location' 
-            placeholder="e.g., 2021, 2024" 
+            placeholder="Enter Your location" 
             className="input input-bordered" 
             required 
+          />
+        </div>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Booking Count</span>
+          </label>
+          <input 
+            type="text" 
+            name='booking' 
+            placeholder="Booking Count" 
+            className="input input-bordered" 
+            defaultValue={0}
           />
         </div>
     
@@ -265,7 +278,7 @@ const AddCar = () => {
 
       {/* Submit Button */}
       <div className="form-control mt-6">
-        <button type="submit" className="btn btn-primary text-xl font-bold">Submit Review</button>
+        <button type="submit" className="btn btn-primary text-2xl font-bold text-white">Submit</button>
       </div>
     </form>
   </div>
