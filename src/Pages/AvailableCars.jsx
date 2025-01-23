@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import { Link } from 'react-router-dom';
 
 const AvailableCars = () => {
     const [cars, setCars] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredCars, setFilteredCars] = useState([]);
-    const [isGridView, setIsGridView] = useState(true); 
-    const [sortOption, setSortOption] = useState('dateNewest'); 
+    const [isGridView, setIsGridView] = useState(true);
+    const [sortOption, setSortOption] = useState('dateNewest');
 
-    
     useEffect(() => {
         fetch('http://localhost:5000/carRental')
             .then((res) => res.json())
             .then((data) => {
                 setCars(data);
-                setFilteredCars(data); 
+                setFilteredCars(data);
             })
             .catch((err) => console.error('Error fetching cars:', err));
     }, []);
-
 
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
@@ -36,7 +35,6 @@ const AvailableCars = () => {
         setFilteredCars(filtered);
     };
 
-    // Sort cars
     const handleSort = (e) => {
         const option = e.target.value;
         setSortOption(option);
@@ -54,7 +52,6 @@ const AvailableCars = () => {
         setFilteredCars(sortedCars);
     };
 
-   
     const toggleView = () => {
         setIsGridView(!isGridView);
     };
@@ -67,10 +64,8 @@ const AvailableCars = () => {
                 </header>
                 <main className="py-10 px-5">
                     <h1 className="text-4xl font-bold text-center mb-10">Available Cars</h1>
-                    
-                  
+
                     <div className="flex flex-col sm:flex-row sm:justify-between items-center mb-10 gap-4">
-                       
                         <input
                             type="text"
                             value={searchTerm}
@@ -79,7 +74,6 @@ const AvailableCars = () => {
                             className="input input-bordered w-full sm:max-w-lg"
                         />
 
-                        {/* Sorting Dropdown */}
                         <select
                             value={sortOption}
                             onChange={handleSort}
@@ -91,7 +85,6 @@ const AvailableCars = () => {
                             <option value="priceHighest">Price: Highest First</option>
                         </select>
 
-                        {/* Toggle View Button */}
                         <button
                             onClick={toggleView}
                             className="btn btn-secondary w-full sm:w-auto"
@@ -100,15 +93,13 @@ const AvailableCars = () => {
                         </button>
                     </div>
 
-                  
                     {filteredCars.length === 0 ? (
                         <p className="text-center text-gray-500">No cars found matching your search.</p>
                     ) : isGridView ? (
-                        // Grid View
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {filteredCars.map((car) => (
                                 <div
-                                    key={car.regNo}
+                                    key={car.id}
                                     className="card bg-base-100 shadow-lg rounded-lg overflow-hidden"
                                 >
                                     <img
@@ -133,13 +124,17 @@ const AvailableCars = () => {
                                                 {car.availability}
                                             </span>
                                         </p>
-                                        <button className="btn btn-primary w-full">Rent Now</button>
+                                        <Link
+                                            to={`/carRental/${car._id}`}
+                                            className="btn btn-info text-white w-full"
+                                        >
+                                            Book Now
+                                        </Link>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     ) : (
-                        // List View
                         <div className="space-y-6">
                             {filteredCars.map((car) => (
                                 <div
@@ -168,7 +163,12 @@ const AvailableCars = () => {
                                                 {car.availability}
                                             </span>
                                         </p>
-                                        <button className="btn btn-primary">Rent Now</button>
+                                        <Link
+                                            to={`/carRental/${car._id}`}
+                                            className="btn btn-info text-white w-full"
+                                        >
+                                            Book Now
+                                        </Link>
                                     </div>
                                 </div>
                             ))}

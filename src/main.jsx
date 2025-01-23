@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './Provider/AuthProvider';
 import PrivateRote from './Routes/PrivateRote';
 import Error404 from './Pages/Error404';
+import CarDetails from './Components/CarDetails';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,17 @@ element:(
     <MyCars></MyCars>
   </PrivateRote>
 )
+},
+
+
+{
+  path:"/carRental/:id",
+  element:(<PrivateRote>
+    <CarDetails></CarDetails>
+  </PrivateRote>),
+  loader: ({ params }) =>
+    fetch(`http://localhost:5000/carRental/${params.id}`)
+
 },
 
 {
