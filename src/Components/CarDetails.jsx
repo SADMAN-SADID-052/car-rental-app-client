@@ -1,7 +1,9 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const CarDetails = () => {
     const details = useLoaderData();
@@ -20,6 +22,71 @@ const CarDetails = () => {
         location,
     } = details;
 
+    const {user} = useContext(AuthContext);
+
+    const handleAddToMybookings = () =>{
+     
+
+        if (!user) {
+            Swal.fire({
+              icon: "warning",
+              title: "Login Required",
+              text: "You need to log in to add to the watchlist.",
+            });
+            return;
+          }
+
+          const bookingslistItem = {
+           
+        carModel,
+        carImage,
+        rentalPrice,
+        name,
+      email,
+      addedBy: {
+        username: user.displayName,
+        email: user.email,
+
+          },
+        
+    };
+
+    fetch("http://localhost:5000/bookinglist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingslistItem ),
+      })
+
+
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Added to BookingList",
+            text: ` added to your Bookinglist!`,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Failed to Add",
+            text: "Something went wrong. Please try again later.",
+          });
+        }
+      })
+      .catch((error) => {
+        // console.log(error)
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An error occurred.",
+        });
+      });
+    
+
+}
     return (
        <div>
 
@@ -83,7 +150,7 @@ const CarDetails = () => {
                             availability === 'Available' ? 'btn-primary' : 'btn-disabled'
                         }`}
                     >
-                        {availability === 'Available' ? 'Book Now' : 'Not Available'}
+                        {availability === 'Available' ? <button onClick={handleAddToMybookings}>Book Now</button> : 'Not Available'}
                     </button>
                 </div>
             </div>
