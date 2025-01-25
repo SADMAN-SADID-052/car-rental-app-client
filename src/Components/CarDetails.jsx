@@ -31,7 +31,7 @@ const CarDetails = () => {
             Swal.fire({
               icon: "warning",
               title: "Login Required",
-              text: "You need to log in to add to the watchlist.",
+              text: "You need to log in to add to the Bookinglist.",
             });
             return;
           }
@@ -41,6 +41,7 @@ const CarDetails = () => {
         carModel,
         carImage,
         rentalPrice,
+        
         name,
       email,
       addedBy: {
