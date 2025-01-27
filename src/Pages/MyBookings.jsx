@@ -41,7 +41,7 @@ const MyBookings = () => {
     }
   }, [user]);
 
-  const handleCancel = (bookingId) => {
+  const handleCancel = (id) => {
     Swal.fire({
       title: "Are you sure you want to cancel this booking?",
       text: "This action cannot be undone.",
@@ -51,15 +51,15 @@ const MyBookings = () => {
       cancelButtonText: "No, Keep it",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/cancelbooking/${bookingId}`, {
-          method: "PATCH",
+        fetch(`http://localhost:5000/bookinglist/${id}`, {
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.success) {
               setBooklist((prev) =>
                 prev.map((item) =>
-                  item._id === bookingId
+                  item._id === id
                     ? { ...item, status: "Canceled" }
                     : item
                 )
@@ -87,7 +87,11 @@ const MyBookings = () => {
   };
 
   const handleSaveModifiedDate = () => {
-    fetch(`http://localhost:5000/modifybooking/${selectedBooking._id}`, {
+
+    if (!modifiedDate) {
+      return Swal.fire("Error", "Please select a valid date.", "error");
+    }
+    fetch(`http://localhost:5000/bookinglist/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ date: modifiedDate }),
@@ -97,7 +101,7 @@ const MyBookings = () => {
         if (data.success) {
           setBooklist((prev) =>
             prev.map((item) =>
-              item._id === selectedBooking._id
+              item._id === id
                 ? { ...item, date: modifiedDate }
                 : item
             )
@@ -200,7 +204,7 @@ const MyBookings = () => {
                       <td className="border border-gray-300 px-4 py-2 text-center">
                         <button
                           className="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600"
-                          onClick={() => handleModify(booking)}
+                          onClick={() => handleModify(booking._id)}
                         >
                           Modify Date
                         </button>

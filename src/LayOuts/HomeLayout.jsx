@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import Banner from '../Components/Banner';
 import WhyChooseUs from '../Components/WhyChooseUs';
+import RecentListings from '../Components/RecentListings';
+import FeaturedCars from '../Components/FeaturedCars';
 
 const HomeLayout = () => {
     return (
@@ -21,6 +23,14 @@ const HomeLayout = () => {
 
                        <section>
                         <WhyChooseUs></WhyChooseUs>
+                       </section>
+
+                       <section>
+                        <RecentListings></RecentListings>
+                       </section>
+
+                       <section>
+                        <FeaturedCars></FeaturedCars>
                        </section>
                     
 
