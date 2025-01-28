@@ -3,7 +3,9 @@ import Navbar from '../Components/Navbar';
 import Banner from '../Components/Banner';
 import WhyChooseUs from '../Components/WhyChooseUs';
 import RecentListings from '../Components/RecentListings';
-import FeaturedCars from '../Components/FeaturedCars';
+// import FeaturedCars from '../Components/FeaturedCars';
+import ManageRentalsSec from '../Components/ManageRentalsSec';
+import SpecialOffers from '../Components/SpecialOffers';
 
 const HomeLayout = () => {
     return (
@@ -30,7 +32,11 @@ const HomeLayout = () => {
                        </section>
 
                        <section>
-                        <FeaturedCars></FeaturedCars>
+                        <ManageRentalsSec></ManageRentalsSec>
+                       </section>
+
+                       <section>
+                        <SpecialOffers></SpecialOffers>
                        </section>
                     
 
