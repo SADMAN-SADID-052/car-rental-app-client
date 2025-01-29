@@ -149,7 +149,7 @@ const MyCars = () => {
 
             <button
               className="btn btn-primary"
-              onClick={() => navigate("/add-car")}
+              onClick={() => navigate("/addCar")}
             >
               Add Car
             </button>
@@ -182,7 +182,7 @@ const MyCars = () => {
                       <td>{car.carModel}</td>
                       <td>${car.rentalPrice}/day</td>
                       <td>{car.booking}</td>
-                      <td>{car.availability ? "Available" : "Unavailable"}</td>
+                      <td>{car.availability}</td>
                       <td>{new Date(car.addedAt).toLocaleString("en-GB", {
                           day: "2-digit",
                           month: "2-digit",

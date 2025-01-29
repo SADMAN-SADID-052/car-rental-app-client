@@ -113,7 +113,7 @@ const AvailableCars = () => {
                                         <p className="text-gray-600 mb-1">Location: {car.location}</p>
                                         <p className="text-gray-600 mb-1">Daily Price: ${car.rentalPrice}</p>
                                         <p className="text-gray-600 mb-3">
-                                            Availability:{' '}
+                                            {/* Availability:{' '} */}
                                             <span
                                                 className={`font-bold ${
                                                     car.availability === 'Available'
