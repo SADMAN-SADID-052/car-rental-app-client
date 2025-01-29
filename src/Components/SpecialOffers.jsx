@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCarSide } from "react-icons/fa";
-import {Zoom,Bounce,Fade} from "react-awesome-reveal";
-
+import { Fade } from "react-awesome-reveal";
 
 const SpecialOffers = () => {
   const offers = [
@@ -34,36 +33,36 @@ const SpecialOffers = () => {
         <h2 className="text-4xl font-bold text-center mb-8">
           Special <span className="text-yellow-300">Offers</span>
         </h2>
-    <Fade>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {offers.map((offer) => (
-            <motion.div
-              key={offer.id}
-              className="relative bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden p-6 hover:shadow-2xl transition-shadow duration-300"
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileHover="hover"
-              viewport={{ once: true }}
-            >
-              {/* Icon */}
-              <div className="absolute -top-8 -right-8 bg-yellow-300 p-4 rounded-full shadow-lg">
-                <FaCarSide size={40} className="text-blue-900" />
-              </div>
-              {/* Content */}
-              <h3 className="text-2xl font-bold mb-4">{offer.title}</h3>
-              <p className="text-gray-600 mb-4">{offer.description}</p>
-              <div className="text-blue-600 font-extrabold text-lg mb-6">
-                {offer.price}
-              </div>
-              {/* Button */}
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:bg-blue-700 transition">
-                {offer.buttonText}
-              </button>
-            </motion.div>
-          ))}
-        </div>
-    </Fade>
+        <Fade>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+            {offers.map((offer) => (
+              <motion.div
+                key={offer.id}
+                className="relative bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden p-6 hover:shadow-2xl transition-shadow duration-300"
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+              >
+                {/* Icon */}
+                <div className="absolute -top-8 -right-8 bg-yellow-300 p-4 rounded-full shadow-lg">
+                  <FaCarSide size={40} className="text-blue-900" />
+                </div>
+                {/* Content */}
+                <h3 className="text-2xl font-bold mb-4">{offer.title}</h3>
+                <p className="text-gray-600 mb-4">{offer.description}</p>
+                <div className="text-blue-600 font-extrabold text-lg mb-6">
+                  {offer.price}
+                </div>
+                {/* Button */}
+                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:bg-blue-700 transition">
+                  {offer.buttonText}
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </Fade>
       </div>
     </div>
   );
