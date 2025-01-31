@@ -1,8 +1,27 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Carento - Car Rental System
 
-Currently, two official plugins are available:
+### 🚗 Project Purpose : 
+Carento is a full-fledged car rental management system that allows users to browse, book, and manage car rentals seamlessly. The platform provides an intuitive UI for users to make bookings while offering an administrative dashboard for managing listings and reservations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Carento Live URL: [Live URL](https://car-rental-system-345e0.web.app/)
+
+### Key Features :
+- **🚘 Car Browsing**
+- **📅 Booking System and Searching System**
+- **📊 Data Visualization and Filtering System**
+- **🔐 User Authentication**
+- **📦 Bookinglist & My car Control system**
+- **📱 Responsive Design**
+  
+### npm Packages:
+- **react,Tailwind CSS, DaisyUI**
+- **react-router-dom,React DatePicker,SweetAlert2,Recharts**
+- **react-hook**
+- **react-icons**
+- **Node.js & Express.js,MongoDB,Mongoose**
+- **Firebase Authentication**
+
+
+
+  
