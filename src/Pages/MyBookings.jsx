@@ -83,15 +83,15 @@ const MyBookings = () => {
 
   const handleModify = (booking) => {
     setSelectedBooking(booking);
-    setModifiedDate(new Date(booking.addedAt)); // Initialize DatePicker with current booking   {new Date(booking.addedAt).toLocaleString("en-GB")}
+    setModifiedDate(booking.addedAt ? new Date(booking.addedAt) : new Date()); // Initialize DatePicker with current booking   {new Date(booking.addedAt).toLocaleString("en-GB")}
   };
-
+  
   const handleSaveModifiedDate = () => {
 
     if (!modifiedDate) {
       return Swal.fire("Error", "Please select a valid date.", "error");
     }
-    fetch(`https://car-rental-system-opal-seven.vercel.app/bookinglist/${id}`, {
+    fetch(`https://car-rental-system-opal-seven.vercel.app/bookinglist/${selectedBooking._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ date: modifiedDate }),
