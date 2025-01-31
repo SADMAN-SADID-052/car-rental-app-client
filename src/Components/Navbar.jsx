@@ -9,7 +9,10 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 mb-10 rounded-tl-3xl rounded-br-3xl"
+      
+      style={{ backgroundImage: "url('https://img.freepik.com/free-vector/watercolor-blue-sky-clouds-background_23-2147504592.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
         {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown lg:hidden">
@@ -54,11 +57,11 @@ const Navbar = () => {
         {/* Navbar Center (Desktop view) */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/availableCars">Available Cars</NavLink></li>
-            <li><NavLink to="/addCar">Add Car</NavLink></li>
-            <li><NavLink to="/myCars">My Cars</NavLink></li>
-            <li><NavLink to="/myBookings">My Bookings</NavLink></li>
+            <li className='font-bold'><NavLink to="/">Home</NavLink></li>
+            <li className='font-bold'><NavLink to="/availableCars">Available Cars</NavLink></li>
+            <li className='font-bold'><NavLink to="/addCar">Add Car</NavLink></li>
+            <li className='font-bold'><NavLink to="/myCars">My Cars</NavLink></li>
+            <li className='font-bold'><NavLink to="/myBookings">My Bookings</NavLink></li>
           </ul>
         </div>
 

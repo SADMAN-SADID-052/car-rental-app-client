@@ -124,6 +124,39 @@ const AddCar = () => {
         </div>
       </div>
 
+   {/* Form first row */}
+   <div className='flex flex-col lg:flex-row gap-5'>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Car Model</span>
+          </label>
+          <input 
+            type="text" 
+            name='carModel' 
+            placeholder="Enter game title" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+        <div className="form-control flex-1">
+          <label className="label">
+            <span className="label-text">Car Image</span>
+          </label>
+          <input 
+            type="text" 
+            name='carImage' 
+            placeholder="Enter image URL" 
+            className="input input-bordered" 
+            required 
+          />
+        </div>
+      </div>
+
+
+
+
+
+
       {/* Availablity and reg number */}
 
       <div className='flex flex-col lg:flex-row gap-5'>
@@ -154,34 +187,7 @@ const AddCar = () => {
       </div>
 
 
-      {/* Form first row */}
-      <div className='flex flex-col lg:flex-row gap-5'>
-        <div className="form-control flex-1">
-          <label className="label">
-            <span className="label-text">Car Model</span>
-          </label>
-          <input 
-            type="text" 
-            name='carModel' 
-            placeholder="Enter game title" 
-            className="input input-bordered" 
-            required 
-          />
-        </div>
-        <div className="form-control flex-1">
-          <label className="label">
-            <span className="label-text">Car Image</span>
-          </label>
-          <input 
-            type="text" 
-            name='carImage' 
-            placeholder="Enter image URL" 
-            className="input input-bordered" 
-            required 
-          />
-        </div>
-      </div>
-
+   
       {/* Form second row */}
       <div className='flex flex-col lg:flex-row gap-5'>
         <div className="form-control flex-1">
@@ -191,7 +197,7 @@ const AddCar = () => {
           <input 
             type="number" 
             name='bookings' 
-            placeholder="e.g., 2021, 2024" 
+            placeholder="Number of Bookings" 
             className="input input-bordered" 
             required 
           />
@@ -235,7 +241,7 @@ const AddCar = () => {
             name='booking' 
             placeholder="Booking Count" 
             className="input input-bordered" 
-            defaultValue={0}
+            Value={0}
           />
         </div>
     

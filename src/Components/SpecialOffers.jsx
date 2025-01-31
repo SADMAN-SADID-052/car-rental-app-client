@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCarSide } from "react-icons/fa";
-import { Fade } from "react-awesome-reveal";
+import { JackInTheBox} from "react-awesome-reveal";
 
 const SpecialOffers = () => {
   const offers = [
@@ -33,10 +33,10 @@ const SpecialOffers = () => {
         <h2 className="text-4xl font-bold text-center mb-8">
           Special <span className="text-yellow-300">Offers</span>
         </h2>
-        <Fade>
+        <JackInTheBox>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
             {offers.map((offer) => (
-              <motion.div
+              <div
                 key={offer.id}
                 className="relative bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden p-6 hover:shadow-2xl transition-shadow duration-300"
                 variants={cardVariants}
@@ -59,10 +59,10 @@ const SpecialOffers = () => {
                 <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold shadow-md hover:bg-blue-700 transition">
                   {offer.buttonText}
                 </button>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </Fade>
+        </JackInTheBox>
       </div>
     </div>
   );

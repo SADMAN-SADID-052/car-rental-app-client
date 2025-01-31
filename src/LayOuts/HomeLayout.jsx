@@ -6,6 +6,7 @@ import RecentListings from '../Components/RecentListings';
 // import FeaturedCars from '../Components/FeaturedCars';
 import ManageRentalsSec from '../Components/ManageRentalsSec';
 import SpecialOffers from '../Components/SpecialOffers';
+import Footer from '../Components/Footer';
 
 const HomeLayout = () => {
     return (
@@ -44,7 +45,9 @@ const HomeLayout = () => {
             </div>
 
             <footer>
+               
 
+               <Footer></Footer>
             </footer>
             
         </div>

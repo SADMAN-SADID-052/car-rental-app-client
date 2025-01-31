@@ -109,7 +109,7 @@ const AvailableCars = () => {
                                     />
                                     <div className="p-5">
                                         <h2 className="text-2xl font-semibold mb-2">{car.carModel}</h2>
-                                        <p className="text-gray-600 mb-1">Brand: {car.brand || 'N/A'}</p>
+                                       
                                         <p className="text-gray-600 mb-1">Location: {car.location}</p>
                                         <p className="text-gray-600 mb-1">Daily Price: ${car.rentalPrice}</p>
                                         <p className="text-gray-600 mb-3">
