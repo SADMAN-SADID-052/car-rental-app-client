@@ -27,12 +27,12 @@ const AddCar = () => {
     const description = e.target.description.value;
    
     const newCar = {name,email,availability,regNo,carModel,carImage,bookings,rentalPrice,features,description,location,booking}
-    console.log(newCar)
+    // console.log(newCar)
 
 
       // send data to the server
 
-      fetch('http://localhost:5000/carRental',{
+      fetch('https://car-rental-system-opal-seven.vercel.app/carRental',{
 
         method: 'POST',
         headers: {

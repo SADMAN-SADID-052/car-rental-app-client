@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const CarDetails = () => {
     const details = useLoaderData();
-    console.log(details)
+    // console.log(details)
 
     const {
         name,
@@ -52,7 +52,7 @@ const CarDetails = () => {
         
     };
 
-    fetch("http://localhost:5000/bookinglist", {
+    fetch("https://car-rental-system-opal-seven.vercel.app/bookinglist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

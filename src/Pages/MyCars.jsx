@@ -21,7 +21,7 @@ const MyCars = () => {
   // Fetch cars from the backend
   const fetchCars = () => {
     setLoading(true);
-    fetch(`http://localhost:5000/carRental?email=${user.email}`)
+    fetch(`https://car-rental-system-opal-seven.vercel.app/carRental?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCars(data);
@@ -67,7 +67,7 @@ const MyCars = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carRental/${id}`, {
+        fetch(`https://car-rental-system-opal-seven.vercel.app/carRental/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -93,7 +93,7 @@ const MyCars = () => {
     const formData = new FormData(e.target);
     const updatedCar = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:5000/carRental/${editingCar._id}`, {
+    fetch(`https://car-rental-system-opal-seven.vercel.app/carRental/${editingCar._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const AvailableCars = () => {
     const [sortOption, setSortOption] = useState('dateNewest');
 
     useEffect(() => {
-        fetch('http://localhost:5000/carRental')
+        fetch('https://car-rental-system-opal-seven.vercel.app/carRental')
             .then((res) => res.json())
             .then((data) => {
                 setCars(data);

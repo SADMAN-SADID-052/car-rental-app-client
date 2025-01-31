@@ -8,7 +8,7 @@ const RecentListings = () => {
     useEffect(() => {
         const fetchRecentCars = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/carRental"); // Updated endpoint
+                const response = await axios.get("https://car-rental-system-opal-seven.vercel.app/carRental"); // Updated endpoint
                 setCars(response.data);
             } catch (err) {
                 console.error("Error fetching recent listings:", err);

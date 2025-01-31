@@ -11,7 +11,7 @@ const Login = () => {
 
   const {userLogin,setUser} = useContext(AuthContext)
   const location = useLocation();
-  console.log(location)
+  // console.log(location)
   const navigate = useNavigate();
 
   // google log in
@@ -22,7 +22,7 @@ const Login = () => {
     signInWithPopup(auth,provider)
     .then((result) => {
       navigate(location?.state  ? location.state : "/");
-      console.log(result)
+      // console.log(result)
 
       toast.success("Login Successful!", {
         position: "top-center",
@@ -96,7 +96,7 @@ const Login = () => {
 <div className="contain py-16">
   <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
     <h2 className="text-2xl uppercase font-medium mb-1">Login</h2>
-    <p className="text-gray-600 mb-6 text-sm">Welcome! So good to have you back!</p>
+   
     <form onSubmit={handleLogin}>
       <p className="text-red-500"></p>
       <div className="space-y-2">

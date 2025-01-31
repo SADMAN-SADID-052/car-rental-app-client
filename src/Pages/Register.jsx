@@ -16,7 +16,7 @@ const { createUser, setUser } = useContext(AuthContext);
     const photo = e.target.photo.value;
     const password = e.target.password.value;
 
-    console.log(name, email, password, photo);
+    // console.log(name, email, password, photo);
 
 
     // Password length validation
