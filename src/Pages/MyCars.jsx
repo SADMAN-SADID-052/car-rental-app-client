@@ -141,12 +141,15 @@ const MyCars = () => {
 
   return (
     <div>
-      <header>
+    <div>
+    <header className="">
         <Navbar />
       </header>
+    </div>
       <div className="max-w-6xl mx-auto">
-        <main className="mt-6 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-2xl p-4">
-          <h1 className="text-3xl font-bold text-center">My Cars</h1>
+       <div>
+       <main className="bg-gradient-to-r from-blue-200 to-cyan-200 rounded-2xl p-4 relative">
+          <h1 className="text-3xl font-bold text-center mt-24">My Cars</h1>
 
           <div className="flex justify-between items-center mt-4">
             <select
@@ -234,6 +237,7 @@ const MyCars = () => {
             </div>
           )}
         </main>
+       </div>
       </div>
 
       {/* Update Modal */}

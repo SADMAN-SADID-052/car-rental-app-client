@@ -8,7 +8,7 @@ const Banner = () => {
 <section
       className="relative w-full h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://img.freepik.com/premium-vector/rental-car-service-concept_107173-16794.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
+        backgroundImage: "url('https://img.freepik.com/free-vector/internet-things-iot-smart-connection-control-device-network-industry-resident-anywhere-anytime-anybody-any-business-with-internet-it-technology-futuristic-world_1150-61178.jpg?ga=GA1.1.687432857.1714536364&semt=ais_authors_boost')",
       }}
     >
       {/* Overlay */}

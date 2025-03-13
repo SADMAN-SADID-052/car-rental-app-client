@@ -15,13 +15,14 @@ const HomeLayout = () => {
       <header>
         {/* <TopBanner></TopBanner> */}
         <Navbar></Navbar>
+        <section>
+            <Banner></Banner>
+          </section>
       </header>
 
       <div className="max-w-6xl mx-auto">
         <main>
-          <section>
-            <Banner></Banner>
-          </section>
+         
 
           <section>
             <WhyChooseUs></WhyChooseUs>

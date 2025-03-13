@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -10,10 +11,10 @@ const Navbar = () => {
   return (
     <div>
       <div
-        className="navbar mb-10 text-white dark:bg-gray-900 dark:text-gray-100"
+        className="navbar  text-white dark:bg-gray-900 dark:text-gray-100 fixed z-40"
         style={{
           backgroundImage:
-            "url('https://img.freepik.com/premium-photo/blue-stapler-navy-blue-background_36682-191240.jpg?ga=GA1.1.94081497.1723952170&semt=ais_authors_boost')",
+            "url('https://img.freepik.com/premium-photo/digital-composite-man-holding-car-icon-car-automobile-insurance-car-services-concept-businessman-with-offering-gesture-icon-car_150455-9242.jpg?ga=GA1.1.687432857.1714536364&semt=ais_authors_boost')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -61,13 +62,21 @@ const Navbar = () => {
 
           <div className="flex items-center">
             <img
-              className="w-16"
-              src="https://cdn-icons-png.freepik.com/256/13533/13533490.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+              className="w-20"
+              src="https://img.icons8.com/?size=160&id=111278&format=png"
               alt="car Rental"
             />
-            <p className="btn btn-ghost text-2xl font-bold hidden md:block">
-              Carento
-            </p>
+            <h1 className="text-2xl font-bold text-[#F5F5F5] bg-[#5C7285] rounded-md">
+              <Typewriter
+                words={["Welcome to Carento!"]}
+                loop={true}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </h1>
           </div>
         </div>
 
@@ -101,7 +110,7 @@ const Navbar = () => {
             <li className="font-bold">
               <NavLink
                 className={({ isActive }) =>
-                  `flex items-center btn btn-outline ml-2 ${
+                  `flex items-center  ml-2 btn btn-outline ${
                     isActive ? "bg-[#41644A] text-white" : "text-white"
                   }`
                 }
@@ -162,17 +171,25 @@ const Navbar = () => {
           {user && user?.email ? (
             <div
               onClick={logOut}
-              className="btn btn-success  font-bold text-white  flex items-center"
+              className="btn btn-outline  font-bold text-white  flex items-center "
             >
-              <img className="w-10" src="https://cdn-icons-png.freepik.com/256/6650/6650476.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
-               <p className="text-xl">LogOut</p>
+              <img
+                className="w-10"
+                src="https://cdn-icons-png.freepik.com/256/6650/6650476.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                alt=""
+              />
+              <p className="text-xl">LogOut</p>
             </div>
           ) : (
             <Link
               to="/auth/login"
               // className="btn btn-accent font-bold text-white"
             >
-               <img className="w-20 border-2 p-1 rounded-lg" src="https://cdn-icons-png.freepik.com/256/5800/5800052.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
+              <img
+                className="w-20 border-2 p-1 rounded-lg"
+                src="https://cdn-icons-png.freepik.com/256/5800/5800052.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                alt=""
+              />
             </Link>
           )}
         </div>

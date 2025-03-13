@@ -161,15 +161,15 @@ const MyBookings = () => {
       </header>
 
       <div className="max-w-6xl mx-auto">
-        <main className="my-10">
-          <h1 className="text-3xl font-bold text-center mb-6">My Bookings</h1>
+        <main className="">
+          <h1 className="text-3xl font-bold text-center">My Bookings</h1>
 
           {loading ? (
             <p className="text-center text-gray-500">
               Loading your bookings...
             </p>
           ) : booklist.length > 0 ? (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-20">
               <table className="table-auto w-full border-collapse border border-gray-300">
                 <thead>
                   <tr className="bg-gray-100">
