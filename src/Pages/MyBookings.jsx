@@ -5,7 +5,16 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, CartesianGrid } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+  CartesianGrid,
+} from "recharts";
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
   const [booklist, setBooklist] = useState([]);
@@ -15,7 +24,9 @@ const MyBookings = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://car-rental-system-opal-seven.vercel.app/bookinglist?email=${user.email}`)
+      fetch(
+        `https://car-rental-system-opal-seven.vercel.app/bookinglist?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -51,17 +62,18 @@ const MyBookings = () => {
       cancelButtonText: "No, Keep it",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://car-rental-system-opal-seven.vercel.app/bookinglist/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://car-rental-system-opal-seven.vercel.app/bookinglist/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.success) {
               setBooklist((prev) =>
                 prev.map((item) =>
-                  item._id === id
-                    ? { ...item, status: "Canceled" }
-                    : item
+                  item._id === id ? { ...item, status: "Canceled" } : item
                 )
               );
               Swal.fire(
@@ -85,25 +97,25 @@ const MyBookings = () => {
     setSelectedBooking(booking);
     setModifiedDate(booking.addedAt ? new Date(booking.addedAt) : new Date()); // Initialize DatePicker with current booking   {new Date(booking.addedAt).toLocaleString("en-GB")}
   };
-  
-  const handleSaveModifiedDate = () => {
 
+  const handleSaveModifiedDate = () => {
     if (!modifiedDate) {
       return Swal.fire("Error", "Please select a valid date.", "error");
     }
-    fetch(`https://car-rental-system-opal-seven.vercel.app/bookinglist/${selectedBooking._id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ date: modifiedDate }),
-    })
+    fetch(
+      `https://car-rental-system-opal-seven.vercel.app/bookinglist/${selectedBooking._id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ date: modifiedDate }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setBooklist((prev) =>
             prev.map((item) =>
-              item._id === id
-                ? { ...item, date: modifiedDate }
-                : item
+              item._id === id ? { ...item, date: modifiedDate } : item
             )
           );
           Swal.fire(
@@ -122,33 +134,33 @@ const MyBookings = () => {
       });
   };
 
-    // Prepare data for the chart
-    const chartData = booklist.map((booking) => ({
-      name: booking.carModel, 
-      price: booking.rentalPrice, 
-    }));
+  // Prepare data for the chart
+  const chartData = booklist.map((booking) => ({
+    name: booking.carModel,
+    price: booking.rentalPrice,
+  }));
 
-
-
-    const CustomTooltip = ({ active, payload }) => {
-      if (active && payload && payload.length) {
-        return (
-          <div className="bg-white p-3 shadow-md rounded border border-gray-300">
-            <p className="text-gray-700 font-semibold">{payload[0].payload.name}</p>
-            <p className="text-blue-500 font-bold">${payload[0].value} per day</p>
-          </div>
-        );
-      }
-      return null;
-    };
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white p-3 shadow-md rounded border border-gray-300">
+          <p className="text-gray-700 font-semibold">
+            {payload[0].payload.name}
+          </p>
+          <p className="text-blue-500 font-bold">${payload[0].value} per day</p>
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     <div>
-      <div className="max-w-6xl mx-auto">
-        <header>
-          <Navbar />
-        </header>
+      <header>
+        <Navbar />
+      </header>
 
+      <div className="max-w-6xl mx-auto">
         <main className="my-10">
           <h1 className="text-3xl font-bold text-center mb-6">My Bookings</h1>
 
@@ -204,7 +216,7 @@ const MyBookings = () => {
                           year: "numeric",
                           hour: "2-digit",
                           minute: "2-digit",
-                          hour12: true, 
+                          hour12: true,
                         })}
                       </td>
                       <td className="border border-gray-300 px-4 py-2 text-center">
@@ -273,35 +285,46 @@ const MyBookings = () => {
           )}
         </main>
 
-              {/* Recharts Bar Chart */}
-              <div className="mt-10">
-  <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">🚗 Car Rental Price Chart</h2>
-  <ResponsiveContainer width="100%" height={350}>
-    <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-      {/* Background Grid */}
-      <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
+        {/* Recharts Bar Chart */}
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">
+            🚗 Car Rental Price Chart
+          </h2>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart
+              data={chartData}
+              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            >
+              {/* Background Grid */}
+              <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
 
-      {/* X and Y Axes */}
-      <XAxis dataKey="name" tick={{ fill: "#555", fontSize: 14 }} />
-      <YAxis tick={{ fill: "#555", fontSize: 14 }} />
+              {/* X and Y Axes */}
+              <XAxis dataKey="name" tick={{ fill: "#555", fontSize: 14 }} />
+              <YAxis tick={{ fill: "#555", fontSize: 14 }} />
 
-      {/* Custom Tooltip */}
-      <Tooltip content={<CustomTooltip />} />
-      <Legend wrapperStyle={{ fontSize: "14px" }} />
+              {/* Custom Tooltip */}
+              <Tooltip content={<CustomTooltip />} />
+              <Legend wrapperStyle={{ fontSize: "14px" }} />
 
-      {/* Gradient Bar Colors */}
-      <defs>
-        <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#34D399" stopOpacity={0.9} />
-          <stop offset="100%" stopColor="#3B82F6" stopOpacity={0.9} />
-        </linearGradient>
-      </defs>
+              {/* Gradient Bar Colors */}
+              <defs>
+                <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#34D399" stopOpacity={0.9} />
+                  <stop offset="100%" stopColor="#3B82F6" stopOpacity={0.9} />
+                </linearGradient>
+              </defs>
 
-      {/* Bars with Animation */}
-      <Bar dataKey="price" fill="url(#colorPrice)" name="Daily Rental Price" barSize={50} radius={[8, 8, 0, 0]} />
-    </BarChart>
-  </ResponsiveContainer>
-</div>
+              {/* Bars with Animation */}
+              <Bar
+                dataKey="price"
+                fill="url(#colorPrice)"
+                name="Daily Rental Price"
+                barSize={50}
+                radius={[8, 8, 0, 0]}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       <footer>

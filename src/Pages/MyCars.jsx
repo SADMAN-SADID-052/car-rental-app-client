@@ -21,7 +21,9 @@ const MyCars = () => {
   // Fetch cars from the backend
   const fetchCars = () => {
     setLoading(true);
-    fetch(`https://car-rental-system-opal-seven.vercel.app/carRental?email=${user.email}`)
+    fetch(
+      `https://car-rental-system-opal-seven.vercel.app/carRental?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setCars(data);
@@ -67,9 +69,12 @@ const MyCars = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://car-rental-system-opal-seven.vercel.app/carRental/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://car-rental-system-opal-seven.vercel.app/carRental/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.success) {
@@ -80,7 +85,11 @@ const MyCars = () => {
             }
           })
           .catch(() => {
-            Swal.fire("Error!", "An error occurred. Please try again.", "error");
+            Swal.fire(
+              "Error!",
+              "An error occurred. Please try again.",
+              "error"
+            );
           });
       }
     });
@@ -93,19 +102,24 @@ const MyCars = () => {
     const formData = new FormData(e.target);
     const updatedCar = Object.fromEntries(formData.entries());
 
-    fetch(`https://car-rental-system-opal-seven.vercel.app/carRental/${editingCar._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedCar),
-    })
+    fetch(
+      `https://car-rental-system-opal-seven.vercel.app/carRental/${editingCar._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedCar),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           Swal.fire("Updated!", "Car details updated successfully.", "success");
           setCars((prev) =>
-            prev.map((car) => (car._id === editingCar._id ? { ...car, ...updatedCar } : car))
+            prev.map((car) =>
+              car._id === editingCar._id ? { ...car, ...updatedCar } : car
+            )
           );
           setEditingCar(null); // Close the modal
         } else {
@@ -127,11 +141,10 @@ const MyCars = () => {
 
   return (
     <div>
+      <header>
+        <Navbar />
+      </header>
       <div className="max-w-6xl mx-auto">
-        <header>
-          <Navbar />
-        </header>
-
         <main className="mt-6 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-2xl p-4">
           <h1 className="text-3xl font-bold text-center">My Cars</h1>
 
@@ -142,7 +155,7 @@ const MyCars = () => {
               onChange={handleSortChange}
             >
               <option value="">Sort by</option>
-             
+
               <option value="price_asc">Price (Lowest First)</option>
               <option value="price_desc">Price (Highest First)</option>
             </select>
@@ -175,22 +188,31 @@ const MyCars = () => {
                 </thead>
                 <tbody>
                   {cars.map((car) => (
-                    <tr key={car._id} className="text-center border-b hover:bg-gray-100">
+                    <tr
+                      key={car._id}
+                      className="text-center border-b hover:bg-gray-100"
+                    >
                       <td>
-                        <img className="w-20 border-2 p-2 rounded-2xl object-cover" src={car.carImage} alt={car.carModel} />
+                        <img
+                          className="w-20 border-2 p-2 rounded-2xl object-cover"
+                          src={car.carImage}
+                          alt={car.carModel}
+                        />
                       </td>
                       <td>{car.carModel}</td>
                       <td>${car.rentalPrice}/day</td>
                       <td>{car.booking}</td>
                       <td>{car.availability}</td>
-                      <td>{new Date(car.addedAt).toLocaleString("en-GB", {
+                      <td>
+                        {new Date(car.addedAt).toLocaleString("en-GB", {
                           day: "2-digit",
                           month: "2-digit",
                           year: "numeric",
                           hour: "2-digit",
                           minute: "2-digit",
-                          hour12: true, 
-                        })}</td>
+                          hour12: true,
+                        })}
+                      </td>
                       <td>
                         <button
                           className="btn btn-outline btn-info"
@@ -215,53 +237,94 @@ const MyCars = () => {
       </div>
 
       {/* Update Modal */}
-        {/* Update Modal */}
-        {editingCar && (
+      {/* Update Modal */}
+      {editingCar && (
         <div className="modal modal-open">
           <div className="modal-box">
             <h3 className="font-bold text-lg">Update Car</h3>
             <form onSubmit={handleUpdateCar}>
               <div className="mt-2">
                 <label>Car Model</label>
-                <input type="text" name="carModel" defaultValue={editingCar.carModel} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  name="carModel"
+                  defaultValue={editingCar.carModel}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div className="mt-2">
                 <label>Rental Price</label>
-                <input type="number" name="rentalPrice" defaultValue={editingCar.rentalPrice} className="input input-bordered w-full" />
+                <input
+                  type="number"
+                  name="rentalPrice"
+                  defaultValue={editingCar.rentalPrice}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div className="mt-2">
                 <label>Availability</label>
-                <select name="availability" defaultValue={editingCar.availability} className="select select-bordered w-full">
+                <select
+                  name="availability"
+                  defaultValue={editingCar.availability}
+                  className="select select-bordered w-full"
+                >
                   <option value="true">Available</option>
                   <option value="false">Unavailable</option>
                 </select>
               </div>
               <div className="mt-2">
                 <label>Vehicle Registration</label>
-                <input type="text" name="registration" defaultValue={editingCar.regNo} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  name="registration"
+                  defaultValue={editingCar.regNo}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div className="mt-2">
                 <label>Features</label>
-                <input type="text" name="features" defaultValue={editingCar.features} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  name="features"
+                  defaultValue={editingCar.features}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div className="mt-2">
                 <label>Description</label>
-                <textarea name="description" defaultValue={editingCar.description} className="textarea textarea-bordered w-full"></textarea>
+                <textarea
+                  name="description"
+                  defaultValue={editingCar.description}
+                  className="textarea textarea-bordered w-full"
+                ></textarea>
               </div>
               <div className="mt-2">
                 <label>Image URL</label>
-                <input type="url" name="carImage" defaultValue={editingCar.carImage} className="input input-bordered w-full" />
+                <input
+                  type="url"
+                  name="carImage"
+                  defaultValue={editingCar.carImage}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div className="mt-2">
                 <label>Location</label>
-                <input type="text" name="location" defaultValue={editingCar.location} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  name="location"
+                  defaultValue={editingCar.location}
+                  className="input input-bordered w-full"
+                />
               </div>
 
               <div className="modal-action">
                 <button type="submit" className="btn btn-primary">
                   Save Changes
                 </button>
-                <button className="btn btn-outline" onClick={() => setEditingCar(null)}>
+                <button
+                  className="btn btn-outline"
+                  onClick={() => setEditingCar(null)}
+                >
                   Cancel
                 </button>
               </div>
@@ -269,7 +332,6 @@ const MyCars = () => {
           </div>
         </div>
       )}
-
 
       <footer>
         <Footer />
