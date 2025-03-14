@@ -25,7 +25,7 @@ const Navbar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 text-[#36d646]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 dark:bg-gray-800 dark:text-gray-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-red-100 text-[#690B22] dark:bg-gray-800 dark:text-gray-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -66,7 +66,7 @@ const Navbar = () => {
               src="https://img.icons8.com/?size=160&id=111278&format=png"
               alt="car Rental"
             />
-            <h1 className="text-2xl font-bold text-[#F5F5F5] bg-[#5C7285] rounded-md">
+            <h1 className="hidden lg:block lg:text-2xl font-bold text-[#F5F5F5] bg-[#5C7285] rounded-md">
               <Typewriter
                 words={["Welcome to Carento!"]}
                 loop={true}

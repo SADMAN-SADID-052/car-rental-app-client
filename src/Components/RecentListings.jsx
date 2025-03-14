@@ -41,22 +41,23 @@ const RecentListings = () => {
             key={car._id}
             className="bg-white shadow-lg  overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-       
-<div className="relative">
-        <img
-          className="w-full h-48 object-cover"
-          src={car.carImage}
-          alt="Car"
-        />
-        <span className="absolute top-40  bg-blue-500 text-white text-sm font-bold px-3 py-1 ">
-        ${car.rentalPrice}/day
-        </span>
-      </div>
+            <div className="relative">
+              <img
+                className="w-full h-48 object-cover"
+                src={car.carImage}
+                alt="Car"
+              />
+              <span className="absolute top-40  bg-blue-500 text-white text-sm font-bold px-3 py-1 ">
+                ${car.rentalPrice}/day
+              </span>
+            </div>
             <div className="p-4 bg-[#F8F3D9]">
-              <h3 className="text-lg font-semibold text-[#626F47]">{car.carModel}</h3>
-            
+              <h3 className="text-lg font-semibold text-[#626F47]">
+                {car.carModel}
+              </h3>
+
               <p>Registration Number : {car.regNo}</p>
-            
+
               <p className="text-sm text-gray-500">
                 Date :{" "}
                 {new Date(car.addedAt).toLocaleString("en-GB", {
@@ -71,8 +72,9 @@ const RecentListings = () => {
             </div>
 
             <Link to="/availableCars">
-            <button className="text-sm py-2 px-3 rounded-md ml-3 mb-4 mt-4 border-2 border-black bg-[#F8F3D9] text-[#504B38] font-semibold">Booking Now</button>
-            
+              <button className="text-sm py-2 px-3 rounded-md ml-3 mb-4 mt-4 border-2 border-black bg-[#F8F3D9] text-[#504B38] font-semibold">
+                Booking Now
+              </button>
             </Link>
           </div>
         ))}

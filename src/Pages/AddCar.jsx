@@ -72,7 +72,7 @@ const AddCar = () => {
         <main>
           <div className="lg:w-3/4 mx-auto">
             <div className="text-center p-10">
-              <h1 className="text-5xl font-bold">Add Car</h1>
+              <h1 className="text-5xl font-bold mt-16">Add Car</h1>
               <p className="py-6">
                 A car rental system is a software that helps manage the process
                 of renting cars.
@@ -91,7 +91,7 @@ const AddCar = () => {
                       name="name"
                       value={user?.displayName}
                       readOnly
-                      className="input input-bordered bg-gray-100"
+                      className="input input-bordered bg-gray-100 dark:bg-black"
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -103,7 +103,7 @@ const AddCar = () => {
                       name="email"
                       value={user?.email}
                       readOnly
-                      className="input input-bordered bg-gray-100"
+                      className="input input-bordered bg-gray-100 dark:bg-black"
                     />
                   </div>
                 </div>

@@ -106,24 +106,33 @@ const AvailableCars = () => {
               {filteredCars.map((car) => (
                 <div
                   key={car.id}
-                  className="card bg-base-100 shadow-lg rounded-lg overflow-hidden"
+                  className="card bg-white shadow-lg rounded-lg overflow-hidden"
                 >
-                  <img
+                  {/* <img
                     src={car.carImage}
                     alt={car.carModel}
                     className="h-48 w-full object-cover"
-                  />
-                  <div className="p-5">
-                    <h2 className="text-2xl font-semibold mb-2">
-                      {car.carModel}
-                    </h2>
+                  /> */}
+
+                  <div className="relative">
+                    <img
+                      className="w-full h-48 object-cover"
+                      src={car.carImage}
+                      alt="Car"
+                    />
+                    <span className="absolute top-40  bg-blue-500 text-white text-sm font-bold px-3 py-1 ">
+                      ${car.rentalPrice}/day
+                    </span>
+                  </div>
+                  <div className="p-4  bg-[#F8F3D9]">
+                  <h3 className="text-lg font-semibold text-[#626F47]">
+                {car.carModel}
+              </h3>
 
                     <p className="text-gray-600 mb-1">
                       Location: {car.location}
                     </p>
-                    <p className="text-gray-600 mb-1">
-                      Daily Price: ${car.rentalPrice}
-                    </p>
+                
                     <p className="text-gray-600 mb-3">
                       {/* Availability:{' '} */}
                       <span
@@ -151,7 +160,7 @@ const AvailableCars = () => {
               {filteredCars.map((car) => (
                 <div
                   key={car.regNo}
-                  className="card bg-base-100 shadow-lg flex items-center p-5 space-x-5"
+                  className="card bg-white shadow-lg flex items-center p-5 space-x-5"
                 >
                   <img
                     src={car.carImage}
@@ -159,7 +168,7 @@ const AvailableCars = () => {
                     className="h-32 w-48 object-cover rounded-lg"
                   />
                   <div>
-                    <h2 className="text-2xl font-semibold mb-2">
+                    <h2 className="text-2xl font-semibold mb-2 text-[#626F47]">
                       {car.carModel}
                     </h2>
                     <p className="text-gray-600 mb-1">
