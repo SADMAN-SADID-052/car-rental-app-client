@@ -94,29 +94,29 @@ const Login = () => {
 
           
 <div className="contain py-16">
-  <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
-    <h2 className="text-2xl uppercase font-medium mb-1">Login</h2>
+  <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden mt-16 border-2 border-teal-300">
+    <h2 className="text-2xl uppercase font-medium mb-3 text-center">Login</h2>
    
     <form onSubmit={handleLogin}>
       <p className="text-red-500"></p>
       <div className="space-y-2">
         <div>
-          <label className="text-gray-600 mb-2 block">
+          <label className="text-gray-600 mb-2 block dark:text-white">
             Email address
           </label>
           <input
             type="email"
             name="email"
             id="email"
-            className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400"
-            placeholder="youremail.@domain.com"
+            className="block w-full border border-gray-300 px-4 py-3 dark:text-[#BFBBA9] text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 dark:placeholder-white"
+            placeholder="youremail.@gmail.com"
             required
           />
         </div>
       </div>
       <div className="space-y-2">
         <div>
-          <label  className="text-gray-600 mb-2 block">
+          <label  className="text-gray-600 mb-2 block dark:text-white">
             Password
           </label>
           <div className="relative">
@@ -163,11 +163,18 @@ const Login = () => {
         <div className='text-center mt-6'>
         <button 
         onClick={handleGoogleLogin}
-        className='btn btn-outline'>Log In With Google</button>
+        className='btn btn-outline'>
+
+          <div className='flex items-center gap-3'>
+          <img className='w-7' src="https://cdn-icons-png.freepik.com/256/2504/2504914.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
+            <p className='text-xl font-semibold'>Login With Google</p>
+          
+          </div>
+        </button>
         </div>
         <div className="flex gap-2 pt-5">
-          <p className="text-gray-600 text-sm">Don't have an account?</p>
-          <Link className="text-gray-600 text-sm underline" to="/auth/register">
+          <p className="text-gray-600 text-sm dark:text-teal-200">Don't have an account?</p>
+          <Link className=" text-sm underline text-purple-500" to="/auth/register">
             Register here
           </Link>
         </div>

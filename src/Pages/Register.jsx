@@ -80,17 +80,17 @@ const { createUser, setUser } = useContext(AuthContext);
   return (
     <div>
       <div className="contain py-16">
-        <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
-          <h2 className="text-2xl uppercase font-medium mb-1">Register</h2>
-          <p className="text-gray-600 mb-6 text-sm">Welcome! So good to have you back!</p>
+        <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden mt-16 border-teal-500 border-2">
+          <h2 className="text-2xl uppercase font-medium mb-3 text-center">Register</h2>
+          
           <form onSubmit={handleSignUp}>
             <div className="space-y-2">
               <div>
-                <label className="text-gray-600 mb-2 block">Name</label>
+                <label className="text-gray-600 mb-2 block dark:text-white">Name</label>
                 <input
                   type="text"
                   name="name"
-                  className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-gray-400"
+                  className="block w-full border border-gray-300 px-4 py-3 text-gray-600 dark:text-[#BFBBA9] text-sm rounded focus:ring-0 focus:border-teal-500 placeholder-white"
                   placeholder="Enter your name"
                   required
                 />
@@ -98,7 +98,7 @@ const { createUser, setUser } = useContext(AuthContext);
             </div>
             <div className="space-y-2">
               <div>
-                <label className="text-gray-600 mb-2 block">Email address</label>
+                <label className="text-gray-600 mb-2 block dark:text-white">Email address</label>
                 <input
                   type="email"
                   name="email"
@@ -110,7 +110,7 @@ const { createUser, setUser } = useContext(AuthContext);
             </div>
             <div className="space-y-2">
               <div>
-                <label className="text-gray-600 mb-2 block">Photo URL</label>
+                <label className="text-gray-600 mb-2 block dark:text-white">Photo URL</label>
                 <input
                   type="text"
                   name="photo"
@@ -122,7 +122,7 @@ const { createUser, setUser } = useContext(AuthContext);
             </div>
             <div className="space-y-2">
               <div>
-                <label className="text-gray-600 mb-2 block">Password</label>
+                <label className="text-gray-600 mb-2 block dark:text-white">Password</label>
                 <input
                   type="password"
                   name="password"
@@ -145,8 +145,8 @@ const { createUser, setUser } = useContext(AuthContext);
 
              
               <div className="flex gap-2 pt-5">
-                <p className="text-gray-600 text-sm">Already have an account?</p>
-                <Link to="/auth/login" className="text-gray-600 text-sm underline">
+                <p className="text-gray-600 text-sm dark:text-teal-200">Already have an account?</p>
+                <Link to="/auth/login" className="text-sm underline text-purple-500">
                   Login Here
                 </Link>
               </div>
