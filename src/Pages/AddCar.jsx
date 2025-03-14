@@ -3,9 +3,12 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import { nav } from "framer-motion/client";
 
 const AddCar = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -39,7 +42,7 @@ const AddCar = () => {
     };
   
 
-    fetch("https://car-rental-system-opal-seven.vercel.app/carRental", {
+    fetch("https://carento-ststem.vercel.app/carRental", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,14 +56,17 @@ const AddCar = () => {
 
         Swal.fire({
           title: "Success!",
-          text: "Review Added Successfully!!",
+          text: "New Car Added Successfully!!",
           icon: "success",
           confirmButtonText: "Cool",
         });
       })
+
+ 
       .catch((err) => {
         console.error("Error submitting car:", err);
       });
+      navigate('/availableCars')
   };
   return (
     <div>
@@ -146,7 +152,7 @@ const AddCar = () => {
                     <input
                       type="text"
                       name="availability"
-                      className="input input-bordered bg-gray-100"
+                      className="input input-bordered "
                     />
                   </div>
                   <div className="form-control flex-1">
@@ -156,7 +162,7 @@ const AddCar = () => {
                     <input
                       type="number"
                       name="regNo"
-                      className="input input-bordered bg-gray-100"
+                      className="input input-bordered"
                     />
                   </div>
                 </div>

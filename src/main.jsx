@@ -66,7 +66,7 @@ element:(
     <CarDetails></CarDetails>
   </PrivateRote>),
   loader: ({ params }) =>
-    fetch(`https://car-rental-system-opal-seven.vercel.app/carRental/${params.id}`)
+    fetch(`https://carento-ststem.vercel.app/carRental/${params.id}`)
 
 },
 

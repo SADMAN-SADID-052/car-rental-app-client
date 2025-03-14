@@ -25,7 +25,7 @@ const MyBookings = () => {
   useEffect(() => {
     if (user?.email) {
       fetch(
-        `https://car-rental-system-opal-seven.vercel.app/bookinglist?email=${user.email}`
+        `https://carento-ststem.vercel.app/bookinglist?email=${user.email}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -63,7 +63,7 @@ const MyBookings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://car-rental-system-opal-seven.vercel.app/bookinglist/${id}`,
+          `https://carento-ststem.vercel.app/bookinglist/${id}`,
           {
             method: "DELETE",
           }
@@ -103,7 +103,7 @@ const MyBookings = () => {
       return Swal.fire("Error", "Please select a valid date.", "error");
     }
     fetch(
-      `https://car-rental-system-opal-seven.vercel.app/bookinglist/${selectedBooking._id}`,
+      `https://carento-ststem.vercel.app/bookinglist/${selectedBooking._id}`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },

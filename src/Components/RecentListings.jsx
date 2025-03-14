@@ -11,7 +11,7 @@ const RecentListings = () => {
     const fetchRecentCars = async () => {
       try {
         const response = await axios.get(
-          "https://car-rental-system-opal-seven.vercel.app/carRental"
+          "https://carento-ststem.vercel.app/carRental"
         ); // Updated endpoint
         setCars(response.data);
       } catch (err) {

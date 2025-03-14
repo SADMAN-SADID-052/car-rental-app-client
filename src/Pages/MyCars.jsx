@@ -22,7 +22,7 @@ const MyCars = () => {
   const fetchCars = () => {
     setLoading(true);
     fetch(
-      `https://car-rental-system-opal-seven.vercel.app/carRental?email=${user.email}`
+      `https://carento-ststem.vercel.app/carRental?email=${user.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -70,7 +70,7 @@ const MyCars = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://car-rental-system-opal-seven.vercel.app/carRental/${id}`,
+          `https://carento-ststem.vercel.app/carRental/${id}`,
           {
             method: "DELETE",
           }
@@ -103,7 +103,7 @@ const MyCars = () => {
     const updatedCar = Object.fromEntries(formData.entries());
 
     fetch(
-      `https://car-rental-system-opal-seven.vercel.app/carRental/${editingCar._id}`,
+      `https://carento-ststem.vercel.app/carRental/${editingCar._id}`,
       {
         method: "PUT",
         headers: {
@@ -148,7 +148,7 @@ const MyCars = () => {
     </div>
       <div className="max-w-6xl mx-auto">
        <div>
-       <main className="bg-gradient-to-r from-blue-200 to-cyan-200 rounded-2xl p-4 relative">
+       <main className="bg-gradient-to-r  rounded-2xl p-4 relative mb-10">
           <h1 className="text-3xl font-bold text-center mt-24">My Cars</h1>
 
           <div className="flex justify-between items-center mt-4">
@@ -164,10 +164,13 @@ const MyCars = () => {
             </select>
 
             <button
-              className="btn btn-primary"
+              className="btn btn-outline"
               onClick={() => navigate("/addCar")}
             >
-              Add Car
+              <div className="flex gap-2 items-center">
+                <img className="w-10" src="https://cdn-icons-png.freepik.com/256/10023/10023591.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
+                <p className="font-semibold text-sm">Add Car</p>
+              </div>
             </button>
           </div>
 
@@ -178,26 +181,26 @@ const MyCars = () => {
           ) : (
             <div className="overflow-x-auto mt-6">
               <table className="table-auto w-full bg-white rounded-lg shadow-lg overflow-hidden">
-                <thead>
-                  <tr className="bg-gray-200 dark:text-black">
-                    <th>Car Image</th>
-                    <th>Car Model</th>
-                    <th>Rental Price</th>
-                    <th>Bookings</th>
-                    <th>Availability</th>
-                    <th>Date Added</th>
-                    <th>Actions</th>
+                <thead className="font-bold text-lg">
+                  <tr className="bg-gray-200 dark:text-black border-b">
+                    <th className="px-4 py-3">Car Image</th>
+                    <th className="px-4 py-3">Car Model</th>
+                    <th className="px-4 py-3">Rental Price</th>
+                    <th className="px-4 py-3">Bookings</th>
+                    <th className="px-4 py-3">Availability</th>
+                    <th className="px-4 py-3">Date</th>
+                    <th className="px-4 py-3">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {cars.map((car) => (
                     <tr
                       key={car._id}
-                      className="text-center border-b hover:bg-gray-100 dark:text-[#57B4BA]"
+                      className="text-center border-b hover:bg-gray-100 dark:text-[#443627]"
                     >
-                      <td>
+                      <td className="px-4 py-4">
                         <img
-                          className="w-20 border-2 p-2 rounded-2xl object-cover"
+                          className="w-20 h-14 border-2 p-2 rounded-2xl object-cover"
                           src={car.carImage}
                           alt={car.carModel}
                         />
@@ -218,16 +221,16 @@ const MyCars = () => {
                       </td>
                       <td>
                         <button
-                          className="btn btn-outline btn-info"
+                          className="btn btn-outline btn-info hover:bg-slate-400"
                           onClick={() => setEditingCar(car)}
                         >
-                          Update
+                          <img className="w-10" src="https://cdn-icons-png.freepik.com/256/5334/5334827.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="Delete" />
                         </button>
                         <button
-                          className="btn btn-outline btn-error"
+                          className="btn btn-outline  ml-4"
                           onClick={() => handleDeleteCar(car._id)}
                         >
-                          Delete
+                          <img className="w-10" src="https://cdn-icons-png.freepik.com/256/12319/12319558.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="Update" />
                         </button>
                       </td>
                     </tr>

@@ -52,7 +52,7 @@ const CarDetails = () => {
         
     };
 
-    fetch("https://car-rental-system-opal-seven.vercel.app/bookinglist", {
+    fetch("https://carento-ststem.vercel.app/bookinglist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
