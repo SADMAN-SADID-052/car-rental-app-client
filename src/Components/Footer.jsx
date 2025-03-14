@@ -20,13 +20,11 @@ const Footer = () => {
             </a>
             <div className="mt-6 lg:max-w-sm">
               <p className="text-sm text-gray-800">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam.
+              Carento is a full-fledged car rental management system that allows{" "}
+      
+            users to browse, book, and manage car rentals seamlessly.
               </p>
-              <p className="mt-4 text-sm text-gray-800">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.
-              </p>
+         
             </div>
           </div>
           <div className="space-y-2 text-sm">
@@ -39,20 +37,20 @@ const Footer = () => {
                 href="tel:850-123-5021"
                 aria-label="Our phone"
                 title="Our phone"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 dark:text-gray-500"
               >
-                850-123-5021
+                +880-123-5021
               </a>
             </div>
             <div className="flex">
               <p className="mr-1 text-gray-800">Email:</p>
               <a
-                href="mailto:info@lorem.mail"
+                href="mailto:carento25@gmail.com.mail"
                 aria-label="Our email"
                 title="Our email"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 dark:text-gray-500"
               >
-                info@lorem.mail
+             carento25@gmail.com.mail
               </a>
             </div>
             <div className="flex">
@@ -63,9 +61,9 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Our address"
                 title="Our address"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 dark:text-gray-500"
               >
-                312 Lovely Street, NY
+                Dhaka, Bangladesh
               </a>
             </div>
           </div>
@@ -100,15 +98,17 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <p className="mt-4 text-sm text-gray-500">
-              Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-              spare ribs salami.
+            <p className="mt-4 text-sm text-gray-500 text-justify">
+            Carento is a full-fledged car rental management system that allows{" "}
+            
+            users to browse, book, and manage car rentals seamlessly.
+            
             </p>
           </div>
         </div>
         <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
           <p className="text-sm text-gray-600">
-            © Copyright 2020 Lorem Inc. All rights reserved.
+            © Copyright 2025 Carento. All rights reserved.
           </p>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>
