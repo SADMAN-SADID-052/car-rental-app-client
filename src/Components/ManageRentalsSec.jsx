@@ -31,7 +31,7 @@ const ManageRentalsSec = () => {
 `;
 
   return (
-    <div className="bg-gray-50 py-12">
+    <div className=" py-12">
     
     <Bounce>
 
@@ -82,12 +82,12 @@ const ManageRentalsSec = () => {
 
           <Reveal keyframes={customAnimation} duration={1500}>
 
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-[#EBE5C2] mb-4">
             Manage <span className="text-red-500">Rentals</span>
           </h2>
      
          </Reveal>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-6 dark:text-[#B9B28A]">
             That light replenish very all good face brought over. His likeness
             fruitful and female morning life great lesser man. Signs abundantly.
             Life. Their be seed their, without great made every. Multiply that dry

@@ -179,7 +179,7 @@ const MyCars = () => {
             <div className="overflow-x-auto mt-6">
               <table className="table-auto w-full bg-white rounded-lg shadow-lg overflow-hidden">
                 <thead>
-                  <tr className="bg-gray-200">
+                  <tr className="bg-gray-200 dark:text-black">
                     <th>Car Image</th>
                     <th>Car Model</th>
                     <th>Rental Price</th>
@@ -193,7 +193,7 @@ const MyCars = () => {
                   {cars.map((car) => (
                     <tr
                       key={car._id}
-                      className="text-center border-b hover:bg-gray-100"
+                      className="text-center border-b hover:bg-gray-100 dark:text-[#57B4BA]"
                     >
                       <td>
                         <img

@@ -197,7 +197,7 @@ const MyBookings = () => {
                   {booklist.map((booking) => (
                     <tr
                       key={booking._id}
-                      className="hover:bg-gray-100 transition-all"
+                      className="dark:text-[#EFF3EA] transition-all"
                     >
                       <td className="border border-gray-300 px-4 py-2 text-center">
                         <img

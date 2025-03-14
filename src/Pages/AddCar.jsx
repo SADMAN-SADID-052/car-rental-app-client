@@ -37,9 +37,7 @@ const AddCar = () => {
       location,
       booking,
     };
-    // console.log(newCar)
-
-    // send data to the server
+  
 
     fetch("https://car-rental-system-opal-seven.vercel.app/carRental", {
       method: "POST",

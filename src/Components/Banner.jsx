@@ -24,7 +24,7 @@ const Banner = () => {
         </p>
         <Link
           to="/availableCars"
-          className="btn btn-info text-white font-bold text-xl"
+          className="bg-[#690B22] text-white font-semibold text-xl p-4 rounded-xl bg-opacity-60 hover:bg-[#690b2357]"
         >
           View Available Cars
         </Link>

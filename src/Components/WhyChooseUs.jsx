@@ -25,9 +25,12 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-100 mt-6">
+    <section className="py-16  mt-6">
       <div className="max-w-6xl mx-auto text-center px-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-10">Why Choose Us?</h2>
+        <h2 className="text-3xl font-bold text-[#ADB2D4] mb-4">Why Choose Us?</h2>
+        <p className="mb-10">Carento is a full-fledged car rental management system that allows <br />
+          users to browse,
+           book, and manage car rentals seamlessly.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div
